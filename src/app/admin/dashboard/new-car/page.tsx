@@ -4,7 +4,7 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function NewCarPage() {
-   const [errorMessage, setErrorMessage] = useState("");
+   // const [errorMessage, setErrorMessage] = useState("");
    const [formData, setFormData] = useState({
       model: "",
       brand: "",

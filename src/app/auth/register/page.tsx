@@ -39,6 +39,9 @@ const RegisterPage = () => {
             toast.error(res.error);
             return;
          }
+         if (res.newUser) {
+            setSuccess("Registration successful!");
+         }
          toast.success("Registration successful!");
          setTimeout(() => {
             window.location.replace("/");
