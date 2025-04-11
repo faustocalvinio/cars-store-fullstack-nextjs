@@ -1,6 +1,5 @@
 "use client";
 
-export const adminPage = () => {
+export default function adminPage() {
    return <div>adminpage</div>;
-};
-export default adminPage;
+}
