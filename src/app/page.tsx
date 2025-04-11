@@ -3,7 +3,6 @@
 import { useCarsHook } from "@/hooks/useCars";
 
 export default  function Home() {
-   // eslint-disable-next-line react-hooks/rules-of-hooks
    const { cars } = useCarsHook();
 
    return (
