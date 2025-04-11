@@ -1,22 +1,17 @@
-"use client";
-
-import { useCarsHook } from "@/hooks/useCars";
+import { AdminCarsList } from "@/component/car/AdminCarsList";
 
 
-export const dashboardPage = () => {
-   // eslint-disable-next-line react-hooks/rules-of-hooks
-   const { cars } = useCarsHook();
+export const DashboardPage = () => {
+  
+   
 
    return (
-      <div>
-         {cars.map((car) => (
-            <div className="border-2 border-red-600" key={car.id}>
-               <h1>{car.model}</h1>
-               <p>{car.brand}</p>
-               <p>{car.price}</p>
-            </div>
-         ))}
-      </div>
+      <>
+         <h1>Dashboard</h1>
+         
+         <AdminCarsList  />
+         
+      </>
    );
 };
-export default dashboardPage;
+export default DashboardPage;

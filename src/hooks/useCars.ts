@@ -4,6 +4,11 @@ import { useEffect, useState } from "react";
 export const useCarsHook = () => {
    const [cars, setCars] = useState<Car[]>([]);
 
+
+   const removeCar = async (id: string) => {
+      setCars((prevCars) => prevCars.filter((car) => car.id !== id));
+   }
+
    useEffect(() => {
       const fetchCars = async () => {
          try {
@@ -24,5 +29,5 @@ export const useCarsHook = () => {
       fetchCars();
    }, []);
 
-   return { cars };
+   return { cars, removeCar };
 };

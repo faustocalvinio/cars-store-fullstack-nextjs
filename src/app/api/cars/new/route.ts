@@ -2,31 +2,6 @@
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
-interface NewCarData {
-   model: string;
-   brand: string;
-   year: number;
-   price: number;
-}
-
-export const newCarAction = async (
-   model: string,
-   brand: string,
-   year: number,
-   price: number
-): Promise<NewCarData> => {
-   const newCar = await prisma.car.create({
-      data: {
-         model,
-         brand,
-         year,
-         price,
-      },
-   });
-
-   return newCar;
-};
-
 export async function POST(req: Request) {
    try {
       const token = req.headers
@@ -47,10 +22,38 @@ export async function POST(req: Request) {
       if (!decodedToken) {
          return NextResponse.json({ error: "Invalid token" }, { status: 401 });
       }
-     
-      const { model, brand, year, price } = await req.json();
+
+      const {
+         model,
+         brand,
+         year,
+         price,
+         description,
+         images,
+         fuelType,
+         mileage,
+         transmission,
+         color,
+         location,
+         hp,
+      } = await req.json();
       // console.log(typeof model, typeof brand, typeof year, typeof price);
-      const newCar = await newCarAction(model, brand, year, price);
+      const newCar = await prisma.car.create({
+         data: {
+            model,
+            brand,
+            year,
+            price,
+            description,
+            images,
+            fuelType,
+            mileage,
+            transmission,
+            color,
+            location,
+            hp,
+         },
+      });
       return NextResponse.json(newCar, { status: 201 });
    } catch (error) {
       console.log(error);
