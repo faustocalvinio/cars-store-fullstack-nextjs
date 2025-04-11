@@ -1,7 +1,7 @@
 import { AdminCarsList } from "@/component/car/AdminCarsList";
 
 
-export const DashboardPage = () => {
+export const dashboardPage = () => {
   
    
 
@@ -14,4 +14,4 @@ export const DashboardPage = () => {
       </>
    );
 };
-export default DashboardPage;
+export default dashboardPage;
